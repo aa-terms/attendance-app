@@ -4,31 +4,26 @@ const path = require("path");
 const moment = require("moment");
 
 const router = express.Router();
-
 const attendanceFile = path.join(__dirname, "../AttendanceRegister.json");
 let attendanceData = JSON.parse(fs.readFileSync(attendanceFile));
 
-// Teacher Portal Homepage
+// Show Attendance and Mark Attendance
 router.get("/", (req, res) => {
-  const today = moment().format("YYYY-MM-DD");
-  res.render("teacher", { students: attendanceData, date: today });
+  const date = req.query.date || moment().format("DD-MM-YYYY");
+  res.render("teacher", { students: attendanceData, date });
 });
 
-// Mark Attendance for a Selected Date
+// Handle Attendance Submission
 router.post("/mark-attendance", (req, res) => {
-  const { date, attendance } = req.body; // `attendance` contains marked student IDs
-  const selectedDate = moment(date).format("YYYY-MM-DD");
-
-  // Mark attendance for students
-  attendanceData = attendanceData.map(student => {
-    if (!student.attendance) student.attendance = {}; // Initialize attendance object
-    student.attendance[selectedDate] = attendance.includes(student.id.toString());
-    return student;
+  const { date, attendance } = req.body;
+  
+  attendanceData.forEach(student => {
+    if (!student.attendance) student.attendance = {};
+    student.attendance[date] = attendance && attendance[student.id] === "present" ? "present" : "absent";
   });
 
-  // Save updated attendance data to file
   fs.writeFileSync(attendanceFile, JSON.stringify(attendanceData, null, 2));
-  res.redirect("/teacher");
+  res.redirect(`/teacher?date=${date}`);
 });
 
 module.exports = router;

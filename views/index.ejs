@@ -6,34 +6,30 @@
   <title>Attendance Overview</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    .present { background-color: lightgreen; }
+    .absent { background-color: lightcoral; }
+    .not-filled { background-color: lightgrey; }
+    .class-average {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
     .container {
-      margin-top: 30px;
-    }
-    .student-list ul {
-      list-style-type: none;
-    }
-    .student-list li {
-      margin: 10px 0;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Grain Chamber Public School</h1>
-    <h2>Class 12B - Attendance Dashboard</h2>
-    <p>Class Average Attendance: <%= classAverage %>%</p>
-
-    <div class="student-list">
-      <h3>Students</h3>
-      <ul class="list-group">
-        <% students.forEach(student => { %>
-          <li class="list-group-item">
-            <a href="/student/<%= student.id %>"><%= student.name %></a> 
-            - Attendance: <%= student.attendance %>%
-          </li>
-        <% }) %>
-      </ul>
-    </div>
+    <h1>Class Attendance Overview</h1>
+    <p class="class-average">Class Average Attendance: <%= classAverage %>%</p>
+    <ul class="list-group">
+      <% students.forEach(student => { %>
+        <li class="list-group-item">
+          <a href="/student/<%= student.id %>"><%= student.name %></a> - <%= student.attendance %>% Attendance
+        </li>
+      <% }); %>
+    </ul>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

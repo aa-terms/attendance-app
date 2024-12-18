@@ -1,57 +1,57 @@
 [
   {
     "id": 1,
-    "name": "Aayushi",
+    "name": "Ashvani",
     "roll_no": "12B01",
-    "dob": "2005-06-10",
+    "dob": "2005-11-01",
     "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": false,
-      "2024-12-19": false
+      "2024-12-17": "present",
+      "2024-12-18": "present",
+      "2024-12-19": "absent"
     }
   },
   {
     "id": 2,
-    "name": "Anjali",
+    "name": "Rahul",
     "roll_no": "12B02",
-    "dob": "2005-07-22",
+    "dob": "2005-11-02",
     "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": true
+      "2024-12-17": "absent",
+      "2024-12-18": "present",
+      "2024-12-19": "present"
     }
   },
   {
     "id": 3,
-    "name": "Aaditya",
+    "name": "Siddharth",
     "roll_no": "12B03",
-    "dob": "2005-08-14",
+    "dob": "2005-11-03",
     "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": false
+      "2024-12-17": "present",
+      "2024-12-18": "absent",
+      "2024-12-19": "absent"
     }
   },
   {
     "id": 4,
-    "name": "Arpit",
+    "name": "Amit",
     "roll_no": "12B04",
-    "dob": "2005-09-18",
+    "dob": "2005-11-04",
     "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": false
+      "2024-12-17": "present",
+      "2024-12-18": "present",
+      "2024-12-19": "present"
     }
   },
   {
     "id": 5,
-    "name": "Chaya",
+    "name": "Priya",
     "roll_no": "12B05",
-    "dob": "2005-10-05",
+    "dob": "2005-11-05",
     "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": false
+      "2024-12-17": "absent",
+      "2024-12-18": "absent",
+      "2024-12-19": "present"
     }
   },
   {
@@ -60,31 +60,9 @@
     "roll_no": "12B06",
     "dob": "2005-11-01",
     "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": false
-    }
-  },
-  {
-    "id": 7,
-    "name": "Surya",
-    "roll_no": "12B07",
-    "dob": "2005-12-10",
-    "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": false
-    }
-  },
-  {
-    "id": 8,
-    "name": "Krishna",
-    "roll_no": "12B08",
-    "dob": "2005-04-10",
-    "attendance": {
-      "2024-12-17": true,
-      "2024-12-18": true,
-      "2024-12-19": false
+      "2024-12-17": "present",
+      "2024-12-18": "present",
+      "2024-12-19": "absent"
     }
   }
 ]

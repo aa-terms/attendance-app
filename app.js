@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Load Attendance Data
 const attendanceFile = path.join(__dirname, "AttendanceRegister.json");
-let attendanceData = JSON.parse(fs.readFileSync(attendanceFile));
+let attendanceData = JSON.parse(fs.readFileSync(attendanceFile, "utf-8"));
 
 // Homepage Route
 app.get("/", (req, res) => {
@@ -20,19 +20,24 @@ app.get("/", (req, res) => {
   let totalPresentDays = 0;
   let totalSchoolDays = 0;
 
-  attendanceData.forEach(student => {
-    totalSchoolDays = Object.keys(student.attendance).length;
-    totalPresentDays += Object.values(student.attendance).filter(status => status).length;
+  attendanceData.forEach((student) => {
+    const studentDays = Object.keys(student.attendance).length;
+    totalSchoolDays = Math.max(totalSchoolDays, studentDays); // Ensure correct count
+    totalPresentDays += Object.values(student.attendance).filter((status) => status === "present").length;
   });
 
   // Calculate the class average attendance percentage
-  const classAverage = ((totalPresentDays / (totalSchoolDays * attendanceData.length)) * 100).toFixed(2);
+  const classAverage = totalSchoolDays
+    ? ((totalPresentDays / (totalSchoolDays * attendanceData.length)) * 100).toFixed(2)
+    : "N/A";
 
   // Render the homepage with student data and class average
-  const students = attendanceData.map(student => ({
+  const students = attendanceData.map((student) => ({
     id: student.id,
     name: student.name,
-    attendance: ((Object.values(student.attendance).filter(status => status).length / totalSchoolDays) * 100).toFixed(2)
+    attendance: totalSchoolDays
+      ? ((Object.values(student.attendance).filter((status) => status === "present").length / totalSchoolDays) * 100).toFixed(2)
+      : "N/A",
   }));
 
   res.render("index", { students, classAverage });
@@ -41,27 +46,29 @@ app.get("/", (req, res) => {
 // Student Details Route
 app.get("/student/:id", (req, res) => {
   const studentId = parseInt(req.params.id);
-  const student = attendanceData.find(s => s.id === studentId);
+  const student = attendanceData.find((s) => s.id === studentId);
 
   if (!student) {
     return res.status(404).send("Student not found");
   }
 
   // Calculate present days for this student
-  const presentDays = Object.values(student.attendance).filter(status => status).length;
+  const presentDays = Object.values(student.attendance).filter((status) => status === "present").length;
   const totalSchoolDays = Object.keys(student.attendance).length;
-  const attendancePercentage = ((presentDays / totalSchoolDays) * 100).toFixed(2);
+  const attendancePercentage = totalSchoolDays
+    ? ((presentDays / totalSchoolDays) * 100).toFixed(2)
+    : "N/A";
 
   // Generate events for the calendar
   const events = [];
   const studentAttendance = student.attendance || {};
 
   // Add attendance events
-  Object.entries(studentAttendance).forEach(([date, isPresent]) => {
+  Object.entries(studentAttendance).forEach(([date, status]) => {
     events.push({
-      title: isPresent ? "Present" : "Absent",
+      title: status.charAt(0).toUpperCase() + status.slice(1),
       start: date,
-      backgroundColor: isPresent ? "green" : "red",
+      backgroundColor: status === "present" ? "green" : "red",
       textColor: "white",
     });
   });
@@ -75,7 +82,7 @@ app.get("/student/:id", (req, res) => {
   });
 });
 
-// Teacher's Portal
+// Teacher's Portal (Handled by teacherRouter)
 const teacherRouter = require("./teacher");
 app.use("/teacher", teacherRouter);
 
