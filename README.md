@@ -21,7 +21,7 @@ A simple attendance tracking web app built using Node.js. The app allows teacher
    npm install
 4. Run the app:
    ```bash
-   node app.js
+   npm start
 ## Credits
 - Developer: Ashvani Kumar
 - AI Assistant: ChatGPT (OpenAI)
