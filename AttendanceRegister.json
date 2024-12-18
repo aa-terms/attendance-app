@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "name": "Rahul",
+    "name": "Aayushi",
     "roll_no": "12B02",
     "dob": "2005-11-02",
     "attendance": {
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "name": "Siddharth",
+    "name": "Anjali",
     "roll_no": "12B03",
     "dob": "2005-11-03",
     "attendance": {
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "name": "Amit",
+    "name": "Arpit",
     "roll_no": "12B04",
     "dob": "2005-11-04",
     "attendance": {
@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "name": "Priya",
+    "name": "Surya",
     "roll_no": "12B05",
     "dob": "2005-11-05",
     "attendance": {
@@ -56,7 +56,7 @@
   },
   {
     "id": 6,
-    "name": "Ashvani",
+    "name": "Shaad",
     "roll_no": "12B06",
     "dob": "2005-11-01",
     "attendance": {
