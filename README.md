@@ -12,7 +12,7 @@ A simple attendance tracking web app built using Node.js. The app allows teacher
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/attendance-app.git
+   git clone https://github.com/aa-terms/attendance-app.git
 2. Navigate to the project folder:
    ```bash
    cd attendance-app
