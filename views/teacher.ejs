@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher's Portal</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .container {
+      margin-top: 30px;
+    }
+    .student-list ul {
+      list-style-type: none;
+    }
+    .student-list li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Teacher's Portal</h2>
+    <form action="/teacher/mark-attendance" method="POST">
+      <div class="form-group">
+        <label for="attendanceDate">Date (DD-MM-YYYY)</label>
+        <input type="text" class="form-control" id="attendanceDate" name="attendanceDate" placeholder="DD-MM-YYYY" value="<%= currentDate %>" required>
+      </div>
+      <div class="form-group">
+        <label>Mark Attendance</label>
+        <ul class="list-group">
+          <% students.forEach(student => { %>
+            <li class="list-group-item">
+              <input type="checkbox" name="attendance[<%= student.id %>]" <%= student.attendance ? 'checked' : '' %> >
+              <%= student.name %> (Roll No: <%= student.roll_no %>, DOB: <%= student.dob %>)
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Attendance</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

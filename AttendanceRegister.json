@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Aayushi",
+    "roll_no": "12B01",
+    "dob": "2005-06-10",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": false,
+      "2024-12-19": false
+    }
+  },
+  {
+    "id": 2,
+    "name": "Anjali",
+    "roll_no": "12B02",
+    "dob": "2005-07-22",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": true
+    }
+  },
+  {
+    "id": 3,
+    "name": "Aaditya",
+    "roll_no": "12B03",
+    "dob": "2005-08-14",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": false
+    }
+  },
+  {
+    "id": 4,
+    "name": "Arpit",
+    "roll_no": "12B04",
+    "dob": "2005-09-18",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": false
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chaya",
+    "roll_no": "12B05",
+    "dob": "2005-10-05",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": false
+    }
+  },
+  {
+    "id": 6,
+    "name": "Ashvani",
+    "roll_no": "12B06",
+    "dob": "2005-11-01",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": false
+    }
+  },
+  {
+    "id": 7,
+    "name": "Surya",
+    "roll_no": "12B07",
+    "dob": "2005-12-10",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": false
+    }
+  },
+  {
+    "id": 8,
+    "name": "Krishna",
+    "roll_no": "12B08",
+    "dob": "2005-04-10",
+    "attendance": {
+      "2024-12-17": true,
+      "2024-12-18": true,
+      "2024-12-19": false
+    }
+  }
+]

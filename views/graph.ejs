@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Attendance Graph</h1>
+  <canvas id="attendanceChart"></canvas>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ctx = document.getElementById("attendanceChart").getContext("2d");
+      const data = <%- JSON.stringify(chartData) %>;
+
+      if (data.names && data.percentages) {
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.names,
+            datasets: [{
+              label: 'Attendance Percentage',
+              data: data.percentages,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      } else {
+        console.error("Invalid chart data");
+      }
+    });
+  </script>
+</body>
+</html>
