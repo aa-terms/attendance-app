@@ -87,7 +87,7 @@ const teacherRouter = require("./teacher");
 app.use("/teacher", teacherRouter);
 
 // Start the Server
-const PORT = 3000;
+const PORT = 4545;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });

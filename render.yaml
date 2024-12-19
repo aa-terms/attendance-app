@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: AttendanceApp
+    env: node
+    buildCommand: npm install
+    startCommand: node app.js
+    plan: free
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
